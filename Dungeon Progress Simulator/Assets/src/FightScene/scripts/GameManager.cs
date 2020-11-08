@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +32,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckAggro();
+        //OPTIMIZABLE
+        if(!pulled)
+        {
+            foreach(GameObject obj in heroObjects)
+            {
+                obj.GetComponent<HeroesBehaviour>().ResetCooldown();
+            }
+        }
     }
 
     #endregion
@@ -57,7 +66,7 @@ public class GameManager : MonoBehaviour
         foreach (Hero hero in Run.run.Team)
         {
             Entity heroEntity = EntityFactory.BuildNewEntity(hero.Definition);
-            fightHandler.Entities.Add(heroEntity.Id, heroEntity);
+            GameManager.fightHandler.Entities.Add(heroEntity.Id, heroEntity);
 
             //Update Hero 
             heroObjects[index].GetComponent<HeroesBehaviour>().InitHero(hero,heroEntity);
@@ -66,6 +75,9 @@ public class GameManager : MonoBehaviour
 
             index++;
         }
+
+
+        
         pulled = false;
 
     }
@@ -77,12 +89,16 @@ public class GameManager : MonoBehaviour
 
         foreach(GameObject hero in heroObjects)
         {
-            if(hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat] > highestThreat)
+            if(hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Alive] == 1)
             {
-                highestThreat = hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat];
-                heroKaLaggro = hero.GetComponent<HeroesBehaviour>();
+                if (hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat] > highestThreat)
+                {
+                    highestThreat = hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat];
+                    heroKaLaggro = hero.GetComponent<HeroesBehaviour>();
+                }
+                hero.GetComponent<HeroesBehaviour>().isAggro = false;
             }
-            hero.GetComponent<HeroesBehaviour>().isAggro = false;
+            
         }
         if(heroKaLaggro != null)
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-class AllAlliesSelector : TargetSelector
+class AllHeroesSelector : TargetSelector
 {
     #region Methods
 

@@ -29,10 +29,22 @@ class DealDamageEffect : Effect
             Debug.Log("Deal Damage Effect executed");
             foreach (int targetId in targets.GetTargets(context))
             {
-                Entity source = fightHandler.Entities[sources.GetTargets(context)[0]];
-                Entity target = fightHandler.Entities[targetId];
-                float damage = value * (100.0f+source.Stats[Stat.Damage])/(100.0f+target.Stats[Stat.Armor]);
-                fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, -1 * (int)damage));
+                try
+                {
+                    Entity source = fightHandler.Entities[sources.GetTargets(context)[0]];
+                    Entity target = fightHandler.Entities[targetId];
+                    float damage = value * (100.0f + source.Stats[Stat.Damage]) / (100.0f + target.Stats[Stat.Armor]);
+                    fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, -1 * (int)damage));
+                }
+                catch(Exception)
+                {
+                    Debug.LogWarning("Début debuggage : ");
+                    Debug.LogWarning("Debuggage : " + fightHandler);
+                    Debug.LogWarning("Debuggage : " + fightHandler.Entities);
+                    Debug.LogWarning("Debuggage : " + fightHandler.Entities[0]);
+                    Debug.LogWarning("Debuggage : " + targetId);
+                    Debug.LogWarning("Fin debuggage : ");
+                }
             }
 
             foreach(int sourceId in sources.GetTargets(context))

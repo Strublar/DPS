@@ -97,7 +97,6 @@ class HeroFactory
 
     private static Spell ParseSpell(int spellId)
     {
-        Debug.LogWarning("Starting to parse spell " + spellId);
         Spell baseSpell = new Spell();
 
         string csv = "/Assets/Data/HeroSpells.csv";
@@ -125,7 +124,6 @@ class HeroFactory
             }
             if (!fields[6].Equals("") )
             {
-                Debug.LogWarning("CP 1 ["+fields[6]+"]");
                 try
                 {
                     baseSpell.Effects.Add(ParseEffect(Int32.Parse(fields[6])));
