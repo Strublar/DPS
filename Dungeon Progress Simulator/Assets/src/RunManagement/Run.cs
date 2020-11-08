@@ -75,7 +75,6 @@ public class Run
     {
         Run.run.CurrentDungeon.Nextboss(dungeonDone);
         GameManager.gameManager.StartNextBoss();
-        GameManager.gameManager.pulled = false;
        
     }
 

@@ -1,2 +1,4 @@
-Id;Name;Cooldown;Effect id;Effect id;Effect id
-0;Bash;5;0;;
+Id;Name;SpellType;Cooldown;Effect id;Effect id;Effect id
+0;Bash;TankSpell;5;0;;
+1;Rock;EventSpell;8;1;;
+2;Earthquake;BigSpell;22;2;;

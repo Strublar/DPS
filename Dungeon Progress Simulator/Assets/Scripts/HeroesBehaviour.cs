@@ -214,5 +214,11 @@ public class HeroesBehaviour : MonoBehaviour
     {
         this.heroLifeBar.GetComponent<LifeBarBehaviour>().actualHp = this.heroEntity.Stats[Stat.Hp];
     }
+
+    public void ResetCooldown()
+    {
+        rotationSpellBar.GetComponent<RotationSpellBarBehaviour>().actualCD = 0;
+        majorSpellBar.GetComponent<MajorSpellBarBehaviour>().actualCD = 0;
+    }
     #endregion
 }

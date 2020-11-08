@@ -1,2 +1,4 @@
-Id;Type;Value;TargetSelector;Value;Condition1;Value;Condition2;Value;Condition3;Value
-0;DealDamageEffect;20;MostThreatHeroSelector;0;;;;;;
+Id;Type;Value;TargetSelector;Value;Condition1;Value;description
+0;DealDamageEffect;75;MostThreatHeroSelector;0;;;Inflige {0} degats a la cible avec le plus de menace
+1;DealDamageEffect;50;RandomHeroSelector;2;;;Inflige {0} degats a 2 heros aleatoires
+2;DealDamageEffect;40;AllHeroesSelector;0;;;Inflige {0} degats a tous les heros

@@ -63,13 +63,16 @@ public class BossBehaviour : MonoBehaviour
 
     public void CastSpells()
     {
+        //C'est la rurururusttiiiiiiine
+        int index = 0;
         foreach(MajorSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
             if (spell.actualCD <= 0)
             {
 
-                GameManager.fightHandler.FireEvent(new SpellCastEvent(bossEntity.Id, bossEntity.Id, bossUnit.Spells[0]));
+                GameManager.fightHandler.FireEvent(new SpellCastEvent(bossEntity.Id, bossEntity.Id, bossUnit.Spells[index]));
                 spell.actualCD = spell.maxCD;
             }
+            index++;
         }
         
     }
