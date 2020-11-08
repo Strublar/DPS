@@ -1,5 +1,5 @@
 Id;Class;Hp;Armor;rotation Spell ID;Signature Spell ID;Passive Id
-0;Warrior;120;125;0;1;
+0;Warrior;130;90;0;1;
 1;Paladin;180;50;2;3;
 2;Rogue;120;9;4;5;
 3;Hunter;80;63;6;7;

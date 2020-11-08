@@ -18,7 +18,7 @@ Id;Type;Value;TargetSelector;Value;Condition;Value;Description
 16;DealDamageEffect;155;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
 17;DealDamageEffect;305;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
 18;DealDamageEffect;205;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
-19;DealDamageEffect;5050;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+19;DealDamageEffect;505;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
 20;HealEffect;45;EffectHolderSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a la cible
 21;ReviveEffect;0;EffectHolderSelector;0;TargetAliveCondition;0;Reanime un allie mort
 22;HealEffect;50;EffectHolderSelector;0;TargetAliveCondition;1;et soigne {0} points de vie a la cible

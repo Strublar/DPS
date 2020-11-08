@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         GameManager.fightHandler = new FightHandler();
         Entity boss = EntityFactory.BuildNewEntity(Run.run.CurrentDungeon.CurrentBoss.Definition);
 
-        GameManager.fightHandler.Entities.Add(boss.Id,boss);
+        fightHandler.Entities.Add(boss.Id,boss);
 
         //Update boss 
         bossObject.GetComponent<BossBehaviour>().InitBoss(Run.run.CurrentDungeon.CurrentBoss, boss);
@@ -89,12 +89,16 @@ public class GameManager : MonoBehaviour
 
         foreach(GameObject hero in heroObjects)
         {
-            if(hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat] > highestThreat)
+            if(hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Alive] == 1)
             {
-                highestThreat = hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat];
-                heroKaLaggro = hero.GetComponent<HeroesBehaviour>();
+                if (hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat] > highestThreat)
+                {
+                    highestThreat = hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat];
+                    heroKaLaggro = hero.GetComponent<HeroesBehaviour>();
+                }
+                hero.GetComponent<HeroesBehaviour>().isAggro = false;
             }
-            hero.GetComponent<HeroesBehaviour>().isAggro = false;
+            
         }
         if(heroKaLaggro != null)
         {

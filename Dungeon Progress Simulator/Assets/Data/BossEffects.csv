@@ -1,4 +1,14 @@
 Id;Type;Value;TargetSelector;Value;Condition1;Value;description
 0;DealDamageEffect;75;MostThreatHeroSelector;0;;;Inflige {0} degats a la cible avec le plus de menace
-1;DealDamageEffect;50;RandomHeroSelector;2;;;Inflige {0} degats a 2 heros aleatoires
-2;DealDamageEffect;40;AllHeroesSelector;0;;;Inflige {0} degats a tous les heros
+1;DealDamageEffect;40;MostThreatHeroSelector;0;;;Inflige {0} degats a la cible avec le plus de menace
+2;DealDamageEffect;50;MostThreatHeroSelector;0;;;Inflige {0} degats a la cible avec le plus de menace
+3;DealDamageEffect;25;RandomHeroSelector;1;;;et {0} degats a un heros aleatoire
+4;DealDamageEffect;30;RandomHeroSelector;5;;;Inflige {0} degats a 5 heros aleatoires
+5;DealDamageEffect;50;RandomHeroSelector;2;;;Inflige {0} degats a 2 heros aleatoires
+6;DealDamageEffect;15;RandomHeroSelector;1;;;Inflige {0} degats a 1 heros aleatoires
+7;DealDamageEffect;40;AllHeroesSelector;0;;;Inflige {0} degats a tous les heros
+8;DealDamageEffect;100;RandomHeroSelector;1;;;Inflige {0} degats a 1 heros aleatoires
+9;DealDamageEffect;20;AllHeroesSelector;0;;;Inflige {0} degats a tous les heros
+;;;;;;;
+;;;;;;;
+;;;;Dps = degats * cible / cd;;;

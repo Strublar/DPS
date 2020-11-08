@@ -15,7 +15,7 @@ class BossFactory
         EntityDefinition definition = new EntityDefinition();
 
 
-        definition.BaseStats = ParseBaseStats(bossId, bossDifficulty);
+        definition.BaseStats = ParseBaseStats(bossDifficulty);
         definition.BaseListeningEffects = ParsePassives();
         returnBoss.Spells = new List<Spell>
         {
@@ -37,7 +37,7 @@ class BossFactory
         return returnBoss;
     }
 
-    private static Dictionary<Stat,int> ParseBaseStats(int bossId, int bossDifficulty)
+    private static Dictionary<Stat,int> ParseBaseStats(int bossDifficulty, int bossId = -1)
     {
         //Parsing Stats
         string csv = "/Assets/Data/Bosses.csv";
@@ -49,6 +49,10 @@ class BossFactory
         string fileString = strReader.ReadToEnd();
         string[] lines = fileString.Split('\n');
 
+        if(bossId == -1)
+        {
+            bossId = UnityEngine.Random.Range(0, lines.Length-2);
+        }
         string[] fields = lines[bossId + 1].Split(';');
         if (fields[0].Equals(bossId.ToString()))
         {
@@ -199,14 +203,18 @@ class BossFactory
         string[] lines = fileString.Split('\n');
 
 
-        /*List<int> query = (from entity in GameManager.fightHandler.Entities
-                           where entity.Value.Stats[Stat.isHero] == 1 &&
-                           entity.Value.Stats[Stat.Alive] == 1
-                           select entity.Value.Id).ToList();*/
+        List<string> query = new List<string>();
+        try
+        {
+             query = (from line in lines
+                                  where line.Split(';')[2] == spellType.ToString()
+                                  select line.Split(';')[0]).ToList();
+        }
+        catch(Exception)
+        {
+            Debug.LogError("Error reading query for boss spells, check csv for line return at the end");
+        }
         
-        List<string> query = (from line in lines
-                              where line.Split(';')[2] == spellType.ToString()
-                              select line.Split(';')[0]).ToList();
 
         Spell newSpell = new Spell();
 
