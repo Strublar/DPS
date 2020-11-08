@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
     public GameObject bossObject;
     public GameObject[] heroObjects;
+    public bool pulled;
 
     #region Unity Methods
     private void Awake()
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("New Hero ready : " + fightHandler.Entities[heroEntity.Id].Name);
             index++;
         }
+        pulled = false;
 
     }
 

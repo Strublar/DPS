@@ -80,15 +80,18 @@ public class HeroesBehaviour : MonoBehaviour
                 Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                 majorSpellBar.actualCD = majorSpellBar.maxCD;
+                GameManager.gameManager.pulled = true;
             }
             else
             {
-                if (linkedHero.SignatureSpell.ValidTarget == ValidTarget.Ally)
+                if (linkedHero.SignatureSpell.ValidTarget == ValidTarget.Ally &&
+                    majorSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
                     Debug.Log("Youpi :) VIOLET + " + majorSpellBar.spellRawImage.CollidingWith.name);
                     Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                     majorSpellBar.actualCD = majorSpellBar.maxCD;
+                    GameManager.gameManager.pulled = true;
                 }
             }
 
@@ -107,15 +110,18 @@ public class HeroesBehaviour : MonoBehaviour
                 Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                 rotationSpellBar.actualCD = rotationSpellBar.maxCD;
+                GameManager.gameManager.pulled = true;
             }
             else
             {
-                if(linkedHero.RotationSpells[0].ValidTarget == ValidTarget.Ally)
+                if(linkedHero.RotationSpells[0].ValidTarget == ValidTarget.Ally &&
+                    rotationSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
                     Debug.Log("Youpi :) JAUNE");
                     Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                     rotationSpellBar.actualCD = rotationSpellBar.maxCD;
+                    GameManager.gameManager.pulled = true;
                 }
             }
 
