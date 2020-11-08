@@ -41,6 +41,8 @@ public class BossBehaviour : MonoBehaviour
         Debug.Log("Base CD : " + boss.Spells[0].Cooldown);
         this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().maxCD = boss.Spells[0].Cooldown;
         this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().actualCD = boss.Spells[0].Cooldown;
+        this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().updateCDImage();
+
     }
 
     public void UpdateStats()

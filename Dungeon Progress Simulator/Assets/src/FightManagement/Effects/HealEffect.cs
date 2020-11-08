@@ -29,7 +29,9 @@ class HealEffect : Effect
             Debug.Log("Healing  Effect executed");
             foreach (int targetId in targets.GetTargets(context))
             {
-                fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, value));
+                Entity source = fightHandler.Entities[sources.GetTargets(context)[0]];
+                float healing = value * (100.0f + source.Stats[Stat.Healing]) / (100.0f);
+                fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, (int)healing));
             }
             foreach (int sourceId in sources.GetTargets(context))
             {

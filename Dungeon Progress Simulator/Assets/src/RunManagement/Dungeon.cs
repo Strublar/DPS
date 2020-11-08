@@ -17,21 +17,21 @@ public class Dungeon
     #endregion
 
     #region Constructor
-    public Dungeon()
+    public Dungeon(int dungeonDone)
     {
         bossesDone = 0;
-        GenerateNewBoss();
+        GenerateNewBoss(dungeonDone);
     }
     #endregion
 
     #region Methods
-    public void GenerateNewBoss()
+    public void GenerateNewBoss(int dungeonDone)
     {
         Debug.Log("Preparing for a new Boss");
-        currentBoss = BossFactory.BuildNewBoss();
+        currentBoss = BossFactory.BuildNewBoss(0,3*dungeonDone+bossesDone);
     }
 
-    public void Nextboss()
+    public void Nextboss(int dungeonDone)
     {
         bossesDone++;
         if(bossesDone >= 3)
@@ -41,7 +41,7 @@ public class Dungeon
         }
         else
         {
-            GenerateNewBoss();
+            GenerateNewBoss(dungeonDone);
             
         }
     }

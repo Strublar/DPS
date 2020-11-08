@@ -22,7 +22,7 @@ public class Run
     #region Constructor
     public Run()
     {
-        dungeonDone = 0;
+        dungeonDone = -1;
         
     }
     #endregion
@@ -31,8 +31,9 @@ public class Run
 
     public void StartNewDungeon()
     {
+        dungeonDone++;
         Debug.Log("Starting a new Dungeon");
-        currentDungeon = DungeonFactory.BuildNewDungeon();
+        currentDungeon = DungeonFactory.BuildNewDungeon(dungeonDone);
     }
 
     #endregion
@@ -45,16 +46,16 @@ public class Run
         
         Run.run.Team = new List<Hero>
         {
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero(),
-            HeroFactory.BuildNewHero()
+            HeroFactory.BuildNewHero(HeroClass.Warrior),
+            HeroFactory.BuildNewHero(HeroClass.Paladin),
+            HeroFactory.BuildNewHero(HeroClass.Rogue),
+            HeroFactory.BuildNewHero(HeroClass.Hunter),
+            HeroFactory.BuildNewHero(HeroClass.Barbarian),
+            HeroFactory.BuildNewHero(HeroClass.Mage),
+            HeroFactory.BuildNewHero(HeroClass.Warlock),
+            HeroFactory.BuildNewHero(HeroClass.Priest),
+            HeroFactory.BuildNewHero(HeroClass.Druid),
+            HeroFactory.BuildNewHero(HeroClass.Shaman)
         };
 
         Run.run.team[0].Definition.Name = "Stephane";
@@ -72,8 +73,10 @@ public class Run
 
     public void BossVictory()
     {
-        Run.run.CurrentDungeon.Nextboss();
+        Run.run.CurrentDungeon.Nextboss(dungeonDone);
         GameManager.gameManager.StartNextBoss();
+        GameManager.gameManager.pulled = false;
+       
     }
 
     public void BossDefeat()

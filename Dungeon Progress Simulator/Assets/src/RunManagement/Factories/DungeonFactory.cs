@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 class DungeonFactory
 {
-    public static Dungeon BuildNewDungeon()
+    public static Dungeon BuildNewDungeon(int dungeonDone)
     {
-        return new Dungeon();
+        return new Dungeon(dungeonDone);
     }
 }
 

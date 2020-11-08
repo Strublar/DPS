@@ -9,13 +9,13 @@ using UnityEngine;
 class BossFactory
 {
     private static string dir = Environment.CurrentDirectory;
-    public static Boss BuildNewBoss(int bossId = 0)
+    public static Boss BuildNewBoss(int bossId = 0, int bossDifficulty = 0)
     {
         Boss returnBoss = new Boss();
         EntityDefinition definition = new EntityDefinition();
 
 
-        definition.BaseStats = ParseBaseStats(bossId);
+        definition.BaseStats = ParseBaseStats(bossId, bossDifficulty);
         definition.BaseListeningEffects = ParsePassives();
         returnBoss.Spells = new List<Spell>
         {
@@ -27,7 +27,7 @@ class BossFactory
         return returnBoss;
     }
 
-    private static Dictionary<Stat,int> ParseBaseStats(int bossId)
+    private static Dictionary<Stat,int> ParseBaseStats(int bossId, int bossDifficulty)
     {
         //Parsing Stats
         string csv = "/Assets/Data/Bosses.csv";
@@ -42,11 +42,11 @@ class BossFactory
         string[] fields = lines[bossId + 1].Split(';');
         if (fields[0].Equals(bossId.ToString()))
         {
-            baseStats.Add(Stat.Hp, Int32.Parse(fields[1]));
-            baseStats.Add(Stat.Armor, Int32.Parse(fields[2]));
+            baseStats.Add(Stat.Hp, (int)((float)Int32.Parse(fields[1])*(100.0f+20.0f*bossDifficulty)/100.0f));
+            baseStats.Add(Stat.Armor, (int)((float)Int32.Parse(fields[2]) * (100.0f + 20.0f * bossDifficulty) / 100.0f));
             baseStats.Add(Stat.Alive, 1);
-            baseStats.Add(Stat.Damage, 0);
-            baseStats.Add(Stat.Healing, 0);
+            baseStats.Add(Stat.Damage, 20*bossDifficulty);
+            baseStats.Add(Stat.Healing, 20 * bossDifficulty);
             baseStats.Add(Stat.isBoss, 1);
             baseStats.Add(Stat.isHero, 0);
             baseStats.Add(Stat.Threat, 0);

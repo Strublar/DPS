@@ -31,12 +31,13 @@ class DealDamageEffect : Effect
             {
                 Entity source = fightHandler.Entities[sources.GetTargets(context)[0]];
                 Entity target = fightHandler.Entities[targetId];
-                int damage = value * (100+source.Stats[Stat.Damage])/(100+target.Stats[Stat.Armor]);
-                fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, -1 * damage));
+                float damage = value * (100.0f+source.Stats[Stat.Damage])/(100.0f+target.Stats[Stat.Armor]);
+                fightHandler.FireEvent(new EntityStatChangedEvent(targetId, targetId, Stat.Hp, -1 * (int)damage));
             }
 
             foreach(int sourceId in sources.GetTargets(context))
             {
+                Entity source = fightHandler.Entities[sourceId];//TODO SCALING THREAT
                 fightHandler.FireEvent(new EntityStatChangedEvent(sourceId, sourceId, Stat.Threat, value));
             }
         }

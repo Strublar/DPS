@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 class TargetAliveCondition : Condition
 {
+    public TargetAliveCondition() : base()
+    {
+
+    }
     public TargetAliveCondition(int value):base(value)
     {
     }

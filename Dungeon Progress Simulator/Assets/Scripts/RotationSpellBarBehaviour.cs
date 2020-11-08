@@ -36,7 +36,7 @@ public class RotationSpellBarBehaviour : MonoBehaviour
             updateCDImage();
         }
     }
-    void updateCDImage()
+    public void updateCDImage()
     {
         cdImage.localScale = new Vector3(1.0f, (float)actualCD/(float)maxCD, 1.0f);
     }

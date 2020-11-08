@@ -37,6 +37,17 @@ public class HeroesBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Rustine
+        if(heroEntity.Stats[Stat.Alive] == 0)
+        {
+            isDead = true;
+            heroEntity.Stats[Stat.Hp] = 0;
+        }
+        else
+        {
+            isDead = false;
+        }
+        colorBackground();
         UpdateStats();
     }
 
@@ -76,22 +87,24 @@ public class HeroesBehaviour : MonoBehaviour
         {
             if (majorSpellBar.spellRawImage.CollidingWith.name == "Boss" && linkedHero.SignatureSpell.ValidTarget == ValidTarget.Enemy)
             {
+                GameManager.gameManager.pulled = true;
                 Debug.Log("OUCH ! VIOLET");
                 Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                 majorSpellBar.actualCD = majorSpellBar.maxCD;
-                GameManager.gameManager.pulled = true;
+                
             }
             else
             {
                 if (linkedHero.SignatureSpell.ValidTarget == ValidTarget.Ally &&
                     majorSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
+                    GameManager.gameManager.pulled = true;
                     Debug.Log("Youpi :) VIOLET + " + majorSpellBar.spellRawImage.CollidingWith.name);
                     Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                     majorSpellBar.actualCD = majorSpellBar.maxCD;
-                    GameManager.gameManager.pulled = true;
+                    
                 }
             }
 
@@ -106,22 +119,24 @@ public class HeroesBehaviour : MonoBehaviour
             if (rotationSpellBar.spellRawImage.CollidingWith.name == "Boss"
                 && linkedHero.RotationSpells[0].ValidTarget == ValidTarget.Enemy)
             {
+                GameManager.gameManager.pulled = true;
                 Debug.Log("OUCH ! JAUNE");
                 Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                 rotationSpellBar.actualCD = rotationSpellBar.maxCD;
-                GameManager.gameManager.pulled = true;
+                
             }
             else
             {
                 if(linkedHero.RotationSpells[0].ValidTarget == ValidTarget.Ally &&
                     rotationSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
+                    GameManager.gameManager.pulled = true;
                     Debug.Log("Youpi :) JAUNE");
                     Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                     rotationSpellBar.actualCD = rotationSpellBar.maxCD;
-                    GameManager.gameManager.pulled = true;
+                    
                 }
             }
 
@@ -166,7 +181,12 @@ public class HeroesBehaviour : MonoBehaviour
         heroLifeBar.GetComponent<LifeBarBehaviour>().InitBar();
 
         this.rotationSpellBar.maxCD = hero.RotationSpells[0].Cooldown;
+        this.rotationSpellBar.actualCD = 0;
         this.majorSpellBar.maxCD = hero.SignatureSpell.Cooldown;
+        this.majorSpellBar.actualCD = 0;
+        this.rotationSpellBar.updateCDImage();
+        this.majorSpellBar.updateCDImage();
+
     }
 
     public void UpdateStats()
