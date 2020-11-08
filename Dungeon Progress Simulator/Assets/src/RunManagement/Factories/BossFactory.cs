@@ -19,6 +19,10 @@ class BossFactory
         definition.BaseListeningEffects = ParsePassives();
         returnBoss.Spells = new List<Spell>
         {
+            ParseSpell(),
+            ParseSpell(),
+            ParseSpell(),
+            ParseSpell(),
             ParseSpell()
         };
 

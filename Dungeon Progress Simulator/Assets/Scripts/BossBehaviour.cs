@@ -12,7 +12,14 @@ public class BossBehaviour : MonoBehaviour
     public string bossName;
     public TextMeshProUGUI nameText;
     public GameObject bossLifeBar;
-    public GameObject majorSpellBar;
+    public ZoneDeSortsBehaviour zoneDeSort;
+    public Transform transformBoss;
+    public RectTransform backgroundTransform;
+
+    private ZoneDeSortsBehaviour actualZoneDeSort;
+
+    //public GameObject majorSpellBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +45,15 @@ public class BossBehaviour : MonoBehaviour
         bossLifeBar.GetComponent<LifeBarBehaviour>().actualHp = entity.Stats[Stat.Hp];
         bossLifeBar.GetComponent<LifeBarBehaviour>().InitBar();
 
-        Debug.Log("Base CD : " + boss.Spells[0].Cooldown);
-        this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().maxCD = boss.Spells[0].Cooldown;
-        this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().actualCD = boss.Spells[0].Cooldown;
-        this.majorSpellBar.GetComponent<MajorSpellBarBehaviour>().updateCDImage();
+        if (actualZoneDeSort != null)
+        {
+            Debug.Log("Je detruit ta mère");
+            actualZoneDeSort.AutoDestruction();
+        }
 
+        actualZoneDeSort = Instantiate<ZoneDeSortsBehaviour>(zoneDeSort, transformBoss);
+        actualZoneDeSort.Background = backgroundTransform;
+        actualZoneDeSort.agencerSorts(boss.Spells);
     }
 
     public void UpdateStats()
@@ -52,14 +63,15 @@ public class BossBehaviour : MonoBehaviour
 
     public void CastSpells()
     {
-        //Todo better for more spells
-        if(majorSpellBar.GetComponent<MajorSpellBarBehaviour>().actualCD <= 0)
-        {
+        foreach(MajorSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
+            if (spell.actualCD <= 0)
+            {
 
-            GameManager.fightHandler.FireEvent(new SpellCastEvent(bossEntity.Id, bossEntity.Id, bossUnit.Spells[0]));
-            majorSpellBar.GetComponent<MajorSpellBarBehaviour>().actualCD = 
-                majorSpellBar.GetComponent<MajorSpellBarBehaviour>().maxCD;
+                GameManager.fightHandler.FireEvent(new SpellCastEvent(bossEntity.Id, bossEntity.Id, bossUnit.Spells[0]));
+                spell.actualCD = spell.maxCD;
+            }
         }
+        
     }
     #endregion
 }

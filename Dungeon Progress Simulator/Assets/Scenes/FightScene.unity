@@ -1010,6 +1010,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!224 &1037887853 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8322290896657871226, guid: 67a753b04d627134db0eecbaf1ce6461,
+    type: 3}
+  m_PrefabInstance: {fileID: 8322290897044831621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1039107489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1147,6 +1153,7 @@ MonoBehaviour:
   - {fileID: 1863819971}
   - {fileID: 1039107490}
   - {fileID: 25450563}
+  pulled: 0
 --- !u!4 &1111333300
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,7 +1504,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.520508, y: -28.99649}
+  m_Offset: {x: -0.025878906, y: -33.683258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1508,7 +1515,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1199.0256, y: 241.03253}
+  m_Size: {x: 1200.2214, y: 241.81183}
   m_EdgeRadius: 0
 --- !u!50 &2098792283
 Rigidbody2D:
@@ -1546,7 +1553,10 @@ MonoBehaviour:
   bossName: Name
   nameText: {fileID: 1381016552}
   bossLifeBar: {fileID: 141271207}
-  majorSpellBar: {fileID: 8322290897044831622}
+  zoneDeSort: {fileID: 1835787351205870009, guid: 48e5de1796b4acf448a8c096d9e3aa27,
+    type: 3}
+  transformBoss: {fileID: 2098792281}
+  backgroundTransform: {fileID: 1037887853}
 --- !u!1 &2119199261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2013014047475740160, guid: 067c093e73ed71c4fb755a97ab4cf39d,
@@ -1779,7 +1789,7 @@ PrefabInstance:
     - target: {fileID: 8322290897228921564, guid: 67a753b04d627134db0eecbaf1ce6461,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8322290897228921564, guid: 67a753b04d627134db0eecbaf1ce6461,
         type: 3}
@@ -1808,9 +1818,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67a753b04d627134db0eecbaf1ce6461, type: 3}
---- !u!1 &8322290897044831622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1529798202309759280, guid: 67a753b04d627134db0eecbaf1ce6461,
-    type: 3}
-  m_PrefabInstance: {fileID: 8322290897044831621}
-  m_PrefabAsset: {fileID: 0}
