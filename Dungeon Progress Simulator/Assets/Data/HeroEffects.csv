@@ -1,28 +1,28 @@
-Id;Type;Value;TargetSelector;Value;Condition;Value
-0;DealDamageEffect;50;EffectHolderSelector;0;TargetAliveCondition;1
-1;GainThreatEffect;200;EffectSourceSelector;0;TargetAliveCondition;1
-2;DealDamageEffect;50;EffectHolderSelector;0;TargetAliveCondition;1
-3;TauntEffect;0;EffectSourceSelector;0;TargetAliveCondition;1
-4;DealDamageEffect;25;EffectHolderSelector;0;TargetAliveCondition;1
-5;HealEffect;20;EffectSourceSelector;0;TargetAliveCondition;1
-6;GainThreatEffect;200;EffectSourceSelector;0;TargetAliveCondition;1
-7;HealEffect;50;EffectSourceSelector;0;TargetAliveCondition;1
-8;TauntEffect;0;EffectSourceSelector;0;TargetAliveCondition;1
-9;DealDamageEffect;65;EffectHolderSelector;0;TargetAliveCondition;1
-10;DealDamageEffect;95;EffectHolderSelector;0;TargetAliveCondition;1
-11;DealDamageEffect;85;EffectHolderSelector;0;TargetAliveCondition;1
-12;DealDamageEffect;155;EffectHolderSelector;0;TargetAliveCondition;1
-13;DealDamageEffect;150;EffectHolderSelector;0;TargetAliveCondition;1
-14;DealDamageEffect;40;EffectSourceSelector;0;TargetAliveCondition;1
-15;HealEffect;100;EffectSourceSelector;0;TargetAliveCondition;1
-16;DealDamageEffect;155;EffectHolderSelector;0;TargetAliveCondition;1
-17;DealDamageEffect;305;EffectHolderSelector;0;TargetAliveCondition;1
-18;DealDamageEffect;205;EffectHolderSelector;0;TargetAliveCondition;1
-19;DealDamageEffect;505;EffectHolderSelector;0;TargetAliveCondition;1
-20;HealEffect;45;EffectHolderSelector;0;TargetAliveCondition;1
-21;ReviveEffect;0;EffectHolderSelector;0;TargetAliveCondition;0
-22;HealEffect;50;EffectHolderSelector;0;TargetAliveCondition;1
-23;HealEffect;65;EffectHolderSelector;0;TargetAliveCondition;1
-24;HealEffect;70;AllAlliesSelector;0;TargetAliveCondition;1
-25;HealEffect;85;EffectHolderSelector;0;TargetAliveCondition;1
-26;HealEffect;50;AllAlliesSelector;0;TargetAliveCondition;1
+Id;Type;Value;TargetSelector;Value;Condition;Value;Description
+0;DealDamageEffect;50;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats
+1;GainThreatEffect;200;EffectSourceSelector;0;TargetAliveCondition;1;et gagne {0} menace
+2;DealDamageEffect;50;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+3;TauntEffect;0;EffectSourceSelector;0;TargetAliveCondition;1;et provoque le boss
+4;DealDamageEffect;25;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+5;HealEffect;20;EffectSourceSelector;0;TargetAliveCondition;1;, soigne {0} points de vie au lanceur
+6;GainThreatEffect;200;EffectSourceSelector;0;TargetAliveCondition;1;et gagne {0} menace
+7;HealEffect;50;EffectSourceSelector;0;TargetAliveCondition;1;Soigne {0} points de vie au lanceur.
+8;TauntEffect;0;EffectSourceSelector;0;TargetAliveCondition;1;et provoque le boss
+9;DealDamageEffect;65;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+10;DealDamageEffect;95;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+11;DealDamageEffect;85;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+12;DealDamageEffect;155;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+13;DealDamageEffect;150;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats
+14;DealDamageEffect;40;EffectSourceSelector;0;TargetAliveCondition;1;et inflige {0} degats au lanceur.
+15;HealEffect;100;EffectSourceSelector;0;TargetAliveCondition;1;Soigne {0} points de vie au lanceur.
+16;DealDamageEffect;155;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+17;DealDamageEffect;305;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+18;DealDamageEffect;205;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+19;DealDamageEffect;505;EffectHolderSelector;0;TargetAliveCondition;1;Inflige {0} degats.
+20;HealEffect;45;EffectHolderSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a la cible
+21;ReviveEffect;0;EffectHolderSelector;0;TargetAliveCondition;0;Reanime un allie mort
+22;HealEffect;50;EffectHolderSelector;0;TargetAliveCondition;1;et soigne {0} points de vie a la cible
+23;HealEffect;65;EffectHolderSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a la cible
+24;HealEffect;70;AllAlliesSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a tous les allies
+25;HealEffect;85;EffectHolderSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a la cible
+26;HealEffect;50;AllAlliesSelector;0;TargetAliveCondition;1;Soigne {0} points de vie a tous les allies

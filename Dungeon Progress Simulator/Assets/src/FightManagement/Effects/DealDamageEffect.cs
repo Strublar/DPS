@@ -42,6 +42,12 @@ class DealDamageEffect : Effect
             }
         }
     }
+
+    public override int GetUpdatedValue(Entity owner)
+    {
+        int value = (int)((float)this.value * (100.0f + (float)owner.Stats[Stat.Damage]) / 100.0f);
+        return value;
+    }
     #endregion
 }
 

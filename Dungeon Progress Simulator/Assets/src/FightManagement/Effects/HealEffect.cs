@@ -39,5 +39,11 @@ class HealEffect : Effect
             }
         }
     }
+
+    public override int GetUpdatedValue(Entity owner)
+    {
+        int value = (int)((float)this.value * (100.0f + (float)owner.Stats[Stat.Healing]) / 100.0f);
+        return value;
+    }
     #endregion
 }
