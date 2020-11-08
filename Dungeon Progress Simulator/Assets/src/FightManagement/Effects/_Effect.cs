@@ -9,7 +9,7 @@ public class Effect
     protected TargetSelector targets;
     protected TargetSelector sources;
     protected List<Condition> conditions;
-
+    protected string description;
 
     #endregion
 
@@ -18,6 +18,7 @@ public class Effect
     public TargetSelector Sources { get => sources; set => sources = value; }
     public List<Condition> Conditions { get => conditions; set => conditions = value; }
     public int Value { get => value; set => this.value = value; }
+    public string Description { get => description; set => description = value; }
     #endregion
 
     #region Constructor
@@ -54,6 +55,9 @@ public class Effect
         return true;
     }
 
-
+    public virtual int GetUpdatedValue(Entity owner)
+    {
+        return this.Value;
+    }
     #endregion
 }

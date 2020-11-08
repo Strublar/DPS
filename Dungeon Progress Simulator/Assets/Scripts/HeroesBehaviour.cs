@@ -93,7 +93,6 @@ public class HeroesBehaviour : MonoBehaviour
             if (majorSpellBar.spellRawImage.CollidingWith.name == "Boss" && linkedHero.SignatureSpell.ValidTarget == ValidTarget.Enemy)
             {
                 GameManager.gameManager.pulled = true;
-                Debug.Log("OUCH ! VIOLET");
                 Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                 majorSpellBar.actualCD = majorSpellBar.maxCD;
@@ -105,7 +104,6 @@ public class HeroesBehaviour : MonoBehaviour
                     majorSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
                     GameManager.gameManager.pulled = true;
-                    Debug.Log("Youpi :) VIOLET + " + majorSpellBar.spellRawImage.CollidingWith.name);
                     Entity target = majorSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.SignatureSpell));
                     majorSpellBar.actualCD = majorSpellBar.maxCD;
@@ -116,7 +114,6 @@ public class HeroesBehaviour : MonoBehaviour
             
         }
 
-        //Debug.Log(rotationSpellBar.spellRawImage.CollidingWith);
 
         if (rotationSpellBar.spellRawImage.CollidingWith != null && rotationSpellBar.PositionDeBase != rotationSpellBar.spellImage.position)
         {
@@ -125,7 +122,6 @@ public class HeroesBehaviour : MonoBehaviour
                 && linkedHero.RotationSpells[0].ValidTarget == ValidTarget.Enemy)
             {
                 GameManager.gameManager.pulled = true;
-                Debug.Log("OUCH ! JAUNE");
                 Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<BossBehaviour>().bossEntity;
                 GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                 rotationSpellBar.actualCD = rotationSpellBar.maxCD;
@@ -137,7 +133,6 @@ public class HeroesBehaviour : MonoBehaviour
                     rotationSpellBar.spellRawImage.CollidingWith.name != "Boss")
                 {
                     GameManager.gameManager.pulled = true;
-                    Debug.Log("Youpi :) JAUNE");
                     Entity target = rotationSpellBar.spellRawImage.CollidingWith.GetComponent<HeroesBehaviour>().heroEntity;
                     GameManager.fightHandler.FireEvent(new SpellCastEvent(target.Id, heroEntity.Id, linkedHero.RotationSpells[0]));
                     rotationSpellBar.actualCD = rotationSpellBar.maxCD;
@@ -150,7 +145,6 @@ public class HeroesBehaviour : MonoBehaviour
 
         majorSpellBar.spellImage.position = majorSpellBar.PositionDeBase;
         rotationSpellBar.spellImage.position = rotationSpellBar.PositionDeBase;
-        //Debug.Log("Je suis laché");
     }
 
     void CheckAggro()
@@ -203,6 +197,16 @@ public class HeroesBehaviour : MonoBehaviour
         this.majorSpellBar.actualCD = 0;
         this.rotationSpellBar.updateCDImage();
         this.majorSpellBar.updateCDImage();
+
+        //Update spell description
+
+        foreach(Spell spell in this.linkedHero.RotationSpells)
+        {
+            spell.UpdateDescription(heroEntity);
+        }
+        this.linkedHero.SignatureSpell.UpdateDescription(heroEntity);
+
+        //TEST
 
     }
 

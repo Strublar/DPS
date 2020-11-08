@@ -12,7 +12,6 @@ class HeroFactory
 
     public static Hero BuildNewHero(HeroClass heroClass)
     {
-        Debug.Log("Building hero of class " + heroClass);
         Hero returnHero = new Hero();
         EntityDefinition definition = new EntityDefinition();
         definition.BaseListeningEffects = new List<ListeningEffectDefinition>();
@@ -20,9 +19,12 @@ class HeroFactory
         List<Spell> baseSpells = ParseSpellList(heroClass);
         returnHero.RotationSpells = new List<Spell> { baseSpells[0] };
         returnHero.SignatureSpell = baseSpells[1];
+
+        
+
         definition.Name = "Xavier";
         returnHero.Definition = definition;
-        Debug.Log("Hero of class " + heroClass+" built successfully");
+        
         return returnHero;
     }
 
@@ -128,7 +130,7 @@ class HeroFactory
                 {
                     baseSpell.Effects.Add(ParseEffect(Int32.Parse(fields[6])));
                 }
-                catch(FormatException e) { }
+                catch(FormatException) { }
             }
 
         }
@@ -177,6 +179,8 @@ class HeroFactory
             {
                 condition.Value = Int32.Parse(fields[6]);
             }
+
+            newEffect.Description = fields[7];
         }
         else
         {
@@ -202,3 +206,16 @@ public enum HeroClass : int
     Shaman = 9
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Run.Init();
+        //Run.Init();
+
         StartRun();
         StartNextBoss();
 
@@ -51,7 +52,6 @@ public class GameManager : MonoBehaviour
         //Update boss 
         bossObject.GetComponent<BossBehaviour>().InitBoss(Run.run.CurrentDungeon.CurrentBoss, boss);
 
-        Debug.Log("New Boss ready : " + fightHandler.Entities[boss.Id].Name);
 
         int index = 0;
         foreach (Hero hero in Run.run.Team)
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             heroObjects[index].GetComponent<HeroesBehaviour>().InitHero(hero,heroEntity);
             
 
-            Debug.Log("New Hero ready : " + fightHandler.Entities[heroEntity.Id].Name);
+
             index++;
         }
         pulled = false;

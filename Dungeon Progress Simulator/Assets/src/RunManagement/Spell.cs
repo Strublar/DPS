@@ -9,7 +9,7 @@ public class Spell
     private int cooldown;
     private List<Effect> effects;
     private ValidTarget validTarget;
-
+    private string description;
     #endregion
 
     #region Getters & Setters
@@ -17,6 +17,7 @@ public class Spell
     public int Cooldown { get => cooldown; set => cooldown = value; }
     public List<Effect> Effects { get => effects; set => effects = value; }
     public ValidTarget ValidTarget { get => validTarget; set => validTarget = value; }
+    public string Description { get => description; set => description = value; }
     #endregion
 
     #region Constructor
@@ -24,6 +25,20 @@ public class Spell
     {
         effects = new List<Effect>();
     }
+    #endregion
+
+    #region Methods
+    public void UpdateDescription(Entity owner)
+    {
+        description = "";
+        foreach(Effect effect in effects)
+        {
+            int value = effect.GetUpdatedValue(owner);
+            description += string.Format(effect.Description, value);
+            description += " ";
+        }
+    }
+
     #endregion
 }
 

@@ -38,6 +38,12 @@ class TauntEffect : Effect
             }
         }
     }
+
+    public override int GetUpdatedValue(Entity owner)
+    {
+
+        return base.GetUpdatedValue(owner);
+    }
     #endregion
 }
 
