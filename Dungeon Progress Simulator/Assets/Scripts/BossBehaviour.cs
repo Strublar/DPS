@@ -72,7 +72,7 @@ public class BossBehaviour : MonoBehaviour
     {
         //C'est la rurururusttiiiiiiine
         int index = 0;
-        foreach(MajorSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
+        foreach(BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
             if (spell.actualCD <= 0)
             {
 
