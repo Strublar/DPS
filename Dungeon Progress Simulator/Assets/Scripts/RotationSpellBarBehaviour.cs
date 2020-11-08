@@ -25,7 +25,7 @@ public class RotationSpellBarBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(actualCD > 0)
+        if(actualCD > 0 && GameManager.gameManager.pulled)
         {
             actualCD -= Time.deltaTime;
             updateCDImage();
