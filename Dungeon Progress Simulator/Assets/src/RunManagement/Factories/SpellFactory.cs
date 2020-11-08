@@ -18,7 +18,7 @@ class SpellFactory
 
         List<Condition> conditions = new List<Condition> { new TargetAliveCondition(1) };
         Effect newEffect = new DealDamageEffect(new EffectSourceSelector(), 
-            new EffectHolderSelector(), 5, conditions);
+            new EffectHolderSelector(), 50, conditions);
 
 
         returnSpell.Cooldown = 1;

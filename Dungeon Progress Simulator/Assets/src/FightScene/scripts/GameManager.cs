@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Run.Init();
         StartRun();
         StartNextBoss();
 
@@ -29,8 +29,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        CheckAggro();
     }
 
     #endregion
@@ -68,6 +67,27 @@ public class GameManager : MonoBehaviour
             index++;
         }
         pulled = false;
+
+    }
+
+    void CheckAggro()
+    {
+        HeroesBehaviour heroKaLaggro = null;
+        int highestThreat = 0;
+
+        foreach(GameObject hero in heroObjects)
+        {
+            if(hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat] > highestThreat)
+            {
+                highestThreat = hero.GetComponent<HeroesBehaviour>().heroEntity.Stats[Stat.Threat];
+                heroKaLaggro = hero.GetComponent<HeroesBehaviour>();
+            }
+            hero.GetComponent<HeroesBehaviour>().isAggro = false;
+        }
+        if(heroKaLaggro != null)
+        {
+            heroKaLaggro.isAggro = true;
+        }
 
     }
 

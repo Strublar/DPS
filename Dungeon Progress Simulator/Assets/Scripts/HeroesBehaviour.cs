@@ -18,6 +18,8 @@ public class HeroesBehaviour : MonoBehaviour
     public GameObject heroLifeBar;
     public Entity heroEntity;
     public Hero linkedHero;
+    public GameObject aggroIndicator;
+    public bool isAggro;
     public enum Role
     {
         Tank,
@@ -30,6 +32,7 @@ public class HeroesBehaviour : MonoBehaviour
     {
         nameText.text = heroesName;
         colorBackground();
+        CheckAggro();
     }
 
     
@@ -37,6 +40,8 @@ public class HeroesBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        CheckAggro();
         UpdateStats();
     }
 
@@ -131,6 +136,18 @@ public class HeroesBehaviour : MonoBehaviour
         majorSpellBar.spellImage.position = majorSpellBar.PositionDeBase;
         rotationSpellBar.spellImage.position = rotationSpellBar.PositionDeBase;
         //Debug.Log("Je suis laché");
+    }
+
+    void CheckAggro()
+    {
+        if (isAggro)
+        {
+            aggroIndicator.SetActive(true);
+        }
+        else
+        {
+            aggroIndicator.SetActive(false);
+        }
     }
     #endregion
 
