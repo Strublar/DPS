@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class ZoneDeSortsBehaviour : MonoBehaviour
 {
-    private MajorSpellBarBehaviour[] listeSorts;
-    public MajorSpellBarBehaviour prefabSpellBar;
+    private BossSpellBarBehaviour[] listeSorts;
+    public BossSpellBarBehaviour prefabSpellBar;
     public Transform zoneDeSort;
     private RectTransform background;
     public float ratio = 0.05f;
 
-    public MajorSpellBarBehaviour[] ListeSorts { get => listeSorts; set => listeSorts = value; }
+    public BossSpellBarBehaviour[] ListeSorts { get => listeSorts; set => listeSorts = value; }
     public RectTransform Background { get => background; set => background = value; }
 
     // Start is called before the first frame update
@@ -34,12 +34,12 @@ public class ZoneDeSortsBehaviour : MonoBehaviour
 
     public void agencerSorts(List<Spell> sorts)
     {
-        listeSorts = new MajorSpellBarBehaviour[sorts.Count];
+        listeSorts = new BossSpellBarBehaviour[sorts.Count];
         int counter = 0;
 
         foreach (Spell sort in sorts)
         {
-            MajorSpellBarBehaviour spellBar = Instantiate(prefabSpellBar, zoneDeSort);
+            BossSpellBarBehaviour spellBar = Instantiate(prefabSpellBar, zoneDeSort);
             listeSorts[counter] = spellBar;
             spellBar.maxCD = sort.Cooldown;
             spellBar.actualCD = spellBar.maxCD;
@@ -49,7 +49,7 @@ public class ZoneDeSortsBehaviour : MonoBehaviour
 
         counter = 1;
         float unit = gameObject.GetComponent<RectTransform>().sizeDelta.x / (listeSorts.Length + 1);
-        foreach (MajorSpellBarBehaviour sort in listeSorts)
+        foreach (BossSpellBarBehaviour sort in listeSorts)
         {
             sort.GetComponent<RectTransform>().anchoredPosition = new Vector2((unit * counter) - (gameObject.GetComponent<RectTransform>().sizeDelta.x / 2), 0);
             counter += 1;

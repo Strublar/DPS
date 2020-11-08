@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2470988666623939726}
   - component: {fileID: 3267189390955613126}
+  - component: {fileID: 3414008140817431839}
   m_Layer: 5
   m_Name: MajorSpellBar
   m_TagString: Untagged
@@ -236,6 +237,7 @@ RectTransform:
   m_Children:
   - {fileID: 6056214884265785012}
   - {fileID: 2954586373788521908}
+  - {fileID: 8466053150609525181}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,3 +263,183 @@ MonoBehaviour:
   maxCD: 30
   actualCD: 0
   spellRawImage: {fileID: 5697866250187584898}
+  infobulle: {fileID: 2723287715479986411}
+--- !u!114 &3414008140817431839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7369111812196515671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3267189390955613126}
+          m_TargetAssemblyTypeName: MajorSpellBarBehaviour, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3267189390955613126}
+          m_TargetAssemblyTypeName: MajorSpellBarBehaviour, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3267189390955613126}
+          m_TargetAssemblyTypeName: MajorSpellBarBehaviour, Assembly-CSharp
+          m_MethodName: OnDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3267189390955613126}
+          m_TargetAssemblyTypeName: MajorSpellBarBehaviour, Assembly-CSharp
+          m_MethodName: OnDragEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &558463936783730601
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2470988666623939726}
+    m_Modifications:
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -150.42229
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250002032344921312, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267898088437583380, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267898088437583380, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267898088437583380, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 49.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382042668501061242, guid: 3e9abc3a87438654aa836aac33ed215f,
+        type: 3}
+      propertyPath: m_Name
+      value: MouseOverSpellInfo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e9abc3a87438654aa836aac33ed215f, type: 3}
+--- !u!224 &8466053150609525181 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8267898088437583380, guid: 3e9abc3a87438654aa836aac33ed215f,
+    type: 3}
+  m_PrefabInstance: {fileID: 558463936783730601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2723287715479986411 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2453054707606939458, guid: 3e9abc3a87438654aa836aac33ed215f,
+    type: 3}
+  m_PrefabInstance: {fileID: 558463936783730601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38df906f5e2b7f408f8f481e157b92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

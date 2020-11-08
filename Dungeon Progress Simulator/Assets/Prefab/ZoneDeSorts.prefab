@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbdfd01317acb647b2ee641c8aba2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabSpellBar: {fileID: 3267189390955613126, guid: ccc617673d8021d4d9f17efdac941107,
+  prefabSpellBar: {fileID: 40869445977476541, guid: 61e29df828323fa4eaff91a15736aebd,
     type: 3}
   zoneDeSort: {fileID: 1398052676060243212}
-  background: {fileID: 0}
   ratio: 0.05

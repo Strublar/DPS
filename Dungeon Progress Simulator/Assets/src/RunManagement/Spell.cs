@@ -28,7 +28,7 @@ public class Spell
     #endregion
 
     #region Methods
-    public void UpdateDescription(Entity owner)
+    public string GetUpdateDescription(Entity owner)
     {
         description = "";
         foreach(Effect effect in effects)
@@ -37,6 +37,10 @@ public class Spell
             description += string.Format(effect.Description, value);
             description += " ";
         }
+
+        description = description.Replace("\r", "");
+        description = description.Replace(".", "");
+        return description;
     }
 
     #endregion

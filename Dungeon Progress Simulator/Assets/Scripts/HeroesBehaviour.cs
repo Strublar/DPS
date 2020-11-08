@@ -35,7 +35,13 @@ public class HeroesBehaviour : MonoBehaviour
         CheckAggro();
     }
 
-    
+    public void OnPointerEnter()
+    {
+        majorSpellBar.infobulle.InitTooltip(linkedHero.SignatureSpell.Name, majorSpellBar.maxCD,linkedHero.SignatureSpell.GetUpdateDescription(heroEntity));
+
+        //Ceci est une putain de rustine ([0])
+        rotationSpellBar.infobulle.InitTooltip(linkedHero.RotationSpells[0].Name, rotationSpellBar.maxCD, linkedHero.RotationSpells[0].GetUpdateDescription(heroEntity));
+    }
 
     // Update is called once per frame
     void Update()
@@ -197,17 +203,6 @@ public class HeroesBehaviour : MonoBehaviour
         this.majorSpellBar.actualCD = 0;
         this.rotationSpellBar.updateCDImage();
         this.majorSpellBar.updateCDImage();
-
-        //Update spell description
-
-        foreach(Spell spell in this.linkedHero.RotationSpells)
-        {
-            spell.UpdateDescription(heroEntity);
-        }
-        this.linkedHero.SignatureSpell.UpdateDescription(heroEntity);
-
-        //TEST
-
     }
 
     public void UpdateStats()

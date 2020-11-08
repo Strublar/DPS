@@ -32,6 +32,14 @@ public class BossBehaviour : MonoBehaviour
         UpdateStats();
         CastSpells();
     }
+    public void OnPointerEnter()
+    {
+        foreach (BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts)
+        {
+            //Ceci est une putain de rustine ([0])
+            spell.infobulle.InitTooltip(bossUnit.Spells[0].Name, spell.maxCD, bossUnit.Spells[0].GetUpdateDescription(bossEntity));
+        }
+    }
 
     #region Methods
     public void InitBoss(Boss boss, Entity entity)
@@ -47,7 +55,6 @@ public class BossBehaviour : MonoBehaviour
 
         if (actualZoneDeSort != null)
         {
-            Debug.Log("Je detruit ta mère");
             actualZoneDeSort.AutoDestruction();
         }
 
@@ -63,7 +70,7 @@ public class BossBehaviour : MonoBehaviour
 
     public void CastSpells()
     {
-        foreach(MajorSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
+        foreach(BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
 
             if (spell.actualCD <= 0)
             {
