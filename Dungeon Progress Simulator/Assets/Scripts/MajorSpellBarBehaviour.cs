@@ -38,7 +38,7 @@ public class MajorSpellBarBehaviour : MonoBehaviour
             actualCD = 0;
             updateCDImage();
         }
-        if(mouseOver && timerMouseOver > 0 && !Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
+        if(mouseOver && timerMouseOver > 0 && !Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             timerMouseOver -= Time.deltaTime;
         }
