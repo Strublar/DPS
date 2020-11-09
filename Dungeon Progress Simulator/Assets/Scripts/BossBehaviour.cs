@@ -34,10 +34,12 @@ public class BossBehaviour : MonoBehaviour
     }
     public void OnPointerEnter()
     {
+        int index = 0;
         foreach (BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts)
         {
             //Ceci est une putain de rustine ([0])
-            spell.infobulle.InitTooltip(bossUnit.Spells[0].Name, spell.maxCD, bossUnit.Spells[0].GetUpdateDescription(bossEntity));
+            spell.infobulle.InitTooltip(bossUnit.Spells[index].Name, spell.maxCD, bossUnit.Spells[index].GetUpdateDescription(bossEntity));
+            index++;
         }
     }
 
@@ -61,6 +63,15 @@ public class BossBehaviour : MonoBehaviour
         actualZoneDeSort = Instantiate<ZoneDeSortsBehaviour>(zoneDeSort, transformBoss);
         actualZoneDeSort.Background = backgroundTransform;
         actualZoneDeSort.agencerSorts(boss.Spells);
+
+        //Rustinien le maudit (appelle OnPointerEnter enfait)
+        int index = 0;
+        foreach (BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts)
+        {
+            //Ceci est une putain de rustine ([0])
+            spell.infobulle.InitTooltip(bossUnit.Spells[index].Name, spell.maxCD, bossUnit.Spells[index].GetUpdateDescription(bossEntity));
+            index++;
+        }
     }
 
     public void UpdateStats()
@@ -72,7 +83,7 @@ public class BossBehaviour : MonoBehaviour
     {
         //C'est la rurururusttiiiiiiine
         int index = 0;
-        foreach(MajorSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
+        foreach(BossSpellBarBehaviour spell in actualZoneDeSort.ListeSorts){
             if (spell.actualCD <= 0)
             {
 

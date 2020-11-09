@@ -1,0 +1,21 @@
+Id;Name;Cooldown;ValidTarget;Effect id;Effect id;Effect id
+0;SpellName;7;Enemy;0;1;
+1;SpellName;16;Enemy;2;3;
+2;SpellName;10;Enemy;4;5;6
+3;SpellName;16;Ally;7;8;
+4;SpellName;5;Enemy;9;;
+5;SpellName;8;Enemy;10;;
+6;SpellName;7;Enemy;11;;
+7;SpellName;13;Enemy;12;;
+8;SpellName;8;Enemy;13;14;
+9;SpellName;20;Ally;15;;
+10;SpellName;15;Enemy;16;;
+11;SpellName;30;Enemy;17;;
+12;SpellName;20;Enemy;18;;
+13;SpellName;50;Enemy;19;;
+14;SpellName;4;Ally;20;;
+15;SpellName;90;Ally;21;22;
+16;SpellName;6;Ally;23;;
+17;SpellName;35;Ally;24;;
+18;SpellName;8;Ally;25;;
+19;SpellName;25;Ally;26;;

@@ -35,7 +35,7 @@ class MostThreatHeroSelector : TargetSelector
             }
         }
 
-        int index = UnityEngine.Random.Range(0, mostThreatQuery.Count-1);
+        int index = UnityEngine.Random.Range(0, mostThreatQuery.Count);
         targetIds[0] = mostThreatQuery[index];
         return targetIds;
     }

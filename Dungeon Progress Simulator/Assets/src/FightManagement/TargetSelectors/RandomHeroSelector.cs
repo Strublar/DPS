@@ -22,7 +22,7 @@ class RandomHeroSelector : TargetSelector
         int timeout = 0;
         do
         {
-            int randint = UnityEngine.Random.Range(0,query.Count-1);
+            int randint = UnityEngine.Random.Range(0,query.Count);
             if(!returnList.Contains<int>(randint))
             {
                 returnList.Add(randint);

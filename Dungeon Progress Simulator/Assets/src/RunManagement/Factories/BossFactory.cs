@@ -218,7 +218,7 @@ class BossFactory
 
         Spell newSpell = new Spell();
 
-        int randint = UnityEngine.Random.Range(0, query.Count - 1);
+        int randint = UnityEngine.Random.Range(0, query.Count);
 
         int randomSpellId = Int32.Parse(query[randint]);
         
